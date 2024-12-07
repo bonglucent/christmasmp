@@ -1,0 +1,162 @@
+/* General styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('ph.png') no-repeat center center/cover;
+}
+
+/* Snow container to ensure snowflakes cover the entire screen */
+#snow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10; /* Ensures snowflakes are above all other elements */
+}
+
+/* Main content styling */
+.main-container {
+    position: relative;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    z-index: 20;
+    max-width: 90%; /* Restrict width for smaller screens */
+    word-wrap: break-word;
+}
+
+.message-box h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.message-box p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+button {
+    background: #ff4040;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background: #ff7070;
+}
+
+/* Snowflake styles */
+.snowflake {
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fall linear infinite;
+}
+
+/* Snowflake animation */
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+/* Responsive Styles for Smaller Screens */
+@media (max-width: 768px) {
+    .message-box h1 {
+        font-size: 2rem;
+    }
+
+    .message-box p {
+        font-size: 1rem;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Extra Small Screens (Vertical Smartphones) */
+@media (max-width: 480px) {
+    body, html {
+        justify-content: flex-start; /* Align content to the top */
+        align-items: flex-start; /* Content starts from top */
+        overflow-y: auto; /* Enable scrolling for smaller screens */
+    }
+
+    .main-container {
+        margin: 112px auto; /* Add margins for better spacing */
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .message-box h1 {
+        font-size: 1.8rem;
+    }
+
+    .message-box p {
+        font-size: 0.9rem;
+    }
+
+    button {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    button:hover {
+        transform: scale(1.1);
+        background: #28e617;
+    }
+}
+/* Flickering lighting effect */
+@keyframes flicker {
+    0% {
+        box-shadow: 0 0 5px #ff4040, 0 0 10px #ff4040, 0 0 20px #ff7070;
+    }
+    50% {
+        box-shadow: 0 0 15px #ff7070, 0 0 30px #ff7070, 0 0 40px #ff4040;
+    }
+    100% {
+        box-shadow: 0 0 5px #ff4040, 0 0 10px #ff4040, 0 0 20px #ff7070;
+    }
+}
+
+/* Button with persistent lighting effect */
+button {
+    background: #ff4040;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    animation: flicker 1.5s infinite; /* Persistent flickering */
+    transition: transform 0.3s;
+}
+
+/* Additional hover effect for interaction */
+button:hover {
+    transform: scale(1.1);
+    background: #85e617;
+}
+
